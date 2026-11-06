@@ -13,7 +13,7 @@
   <meta name="theme-color" content="#ffd43b">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style.css?v=3">
 </head>
 <body>
   <header class="hero">
@@ -56,13 +56,47 @@
         <div class="fact"><strong>Coming to Google Play</strong><span>Android. Testing now.</span></div>
       </div>
     </section>
+
+    <!-- Comments. The data-api link is the Google Apps Script web app (ends in /exec). -->
+    <section class="wrap" id="comments" data-api="https://script.google.com/macros/s/AKfycbzPZczwHnDds8K9BCHc-tvMyIBIgN2KjBHqx41k2qn3F754qS2wrfbFpDPcGqp_otEtnQ/exec">
+      <h2>Whether it sucks, meh, or not bad, please comment</h2>
+      <p class="caption" style="margin:-8px 0 18px">No sign-up needed. Joke ideas are welcome too.</p>
+
+      <form class="cform" id="cform" novalidate>
+        <fieldset class="verdicts">
+          <legend>Your verdict</legend>
+          <label class="verdict"><input type="radio" name="verdict" value="sucks"><span class="em">😒</span>It sucks</label>
+          <label class="verdict"><input type="radio" name="verdict" value="meh"><span class="em">🫤</span>Meh</label>
+          <label class="verdict"><input type="radio" name="verdict" value="notbad"><span class="em">😎</span>Not bad</label>
+        </fieldset>
+        <label class="field">Name <span class="opt">(optional)</span>
+          <input type="text" name="name" maxlength="40" autocomplete="nickname" placeholder="Anonymous">
+        </label>
+        <label class="field">Comment
+          <textarea name="comment" maxlength="1000" rows="5" placeholder="What made you smile, or didn't?"></textarea>
+        </label>
+        <!-- Spam-bot trap: invisible to people, even without the stylesheet. -->
+        <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">
+          <input type="text" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="form-row">
+          <button type="submit" class="send">Post comment</button>
+          <span class="msg" id="cmsg" role="status"></span>
+        </div>
+      </form>
+
+      <div class="tally" id="tally" hidden></div>
+      <ol class="clist" id="clist" aria-live="polite"></ol>
+      <p class="caption" id="cstate"></p>
+    </section>
   </main>
 
   <footer>
     <div class="wrap">
       <span>© 2026 MakeEmSmile</span>
-      <span><a href="/feedback/">Comments</a> · <a href="/privacy/">Privacy policy</a> · <a href="mailto:lashasadz@gmail.com">Contact</a></span>
+      <span><a href="/#comments">Comments</a> · <a href="/privacy/">Privacy policy</a> · <a href="mailto:lashasadz@gmail.com">Contact</a></span>
     </div>
   </footer>
+  <script src="/comments.js?v=3" defer></script>
 </body>
 </html>

@@ -86,7 +86,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
 }
 
 /* Comments page */
-.cform { background: var(--card); border: 2px solid var(--ink); border-radius: 20px; padding: 20px; }
+.cform { position: relative; background: var(--card); border: 2px solid var(--ink); border-radius: 20px; padding: 20px; }
 .verdicts { border: 0; padding: 0; margin: 0 0 14px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .verdicts legend { font-weight: 700; margin-bottom: 10px; padding: 0; }
 .verdict {
@@ -124,3 +124,4 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
 .chead { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
 .cwhen { color: var(--ink-soft); font-size: 14px; }
 .cbody p { margin: 4px 0 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+html { scroll-behavior: smooth; }
