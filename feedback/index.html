@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Feedback · MakeEmSmile</title>
+  <meta name="description" content="Tell us what you think of MakeEmSmile: sucks, meh, or not bad.">
+  <meta name="theme-color" content="#ffd43b">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="topbar"><div class="wrap"><a class="logo" href="/"><img class="face" src="/favicon.svg" alt="" width="40" height="40">MakeEmSmile</a></div></div>
+  <main class="wrap doc">
+    <h1>Whether it sucks, meh, or not bad, tell us</h1>
+    <p class="updated">Every comment gets read. Ideas for jokes are welcome too.</p>
+
+    <!--
+      PASTE YOUR GOOGLE FORM LINK BELOW, between the quotes after data-form=
+      (Google Form → Send → the < > tab → copy the address inside src="...").
+      Until then, the page shows the email version.
+    -->
+    <div id="feedback" data-form=""></div>
+
+    <div class="votes" id="fallback">
+      <a class="vote" href="mailto:lashasadz@gmail.com?subject=MakeEmSmile%3A%20it%20sucks%20%F0%9F%98%92&amp;body=What%20went%20wrong%3F%0A%0A"><span>😒</span>It sucks</a>
+      <a class="vote" href="mailto:lashasadz@gmail.com?subject=MakeEmSmile%3A%20meh%20%F0%9F%AB%A4&amp;body=What%20would%20make%20it%20better%3F%0A%0A"><span>🫤</span>Meh</a>
+      <a class="vote" href="mailto:lashasadz@gmail.com?subject=MakeEmSmile%3A%20not%20bad%20%F0%9F%98%8E&amp;body=What%20did%20you%20like%3F%0A%0A"><span>😎</span>Not bad</a>
+    </div>
+    <p class="caption" id="fallback-note">Tap one to send a quick email.</p>
+  </main>
+  <footer><div class="wrap"><span>© 2026 MakeEmSmile</span><span><a href="/">Home</a> · <a href="/privacy/">Privacy policy</a></span></div></footer>
+  <script>
+    (function () {
+      var box = document.getElementById('feedback');
+      var url = (box.getAttribute('data-form') || '').trim();
+      if (!url) return;
+      var frame = document.createElement('iframe');
+      frame.src = url;
+      frame.title = 'Feedback form';
+      frame.loading = 'lazy';
+      frame.className = 'form-frame';
+      box.appendChild(frame);
+      document.getElementById('fallback').style.display = 'none';
+      document.getElementById('fallback-note').style.display = 'none';
+    })();
+  </script>
+</body>
+</html>
